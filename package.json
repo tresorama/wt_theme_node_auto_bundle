@@ -1,0 +1,40 @@
+{
+  "name": "NODE_AUTO_BOUNDLE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear-folders": "node clear-folders.js",
+    "create-blank-folders": "mkdir -p pre_bundle && mkdir -p preprocess && mkdir -p postprocess && mkdir -p minified",
+    "create-bundle": "node create-bundle.js",
+    "autoprefixer": "postcss preprocess/*.css --use autoprefixer -d postprocess/",
+    "babel-js": "babel preprocess -d postprocess",
+    "uglify-js": "uglifyjs postprocess/bundle.js --compress --output minified/bundle.min.js",
+    "uglify-css": "uglifycss postprocess/bundle.css --output minified/bundle.min.css",
+    "move-to-theme": "node move-to-theme.js",
+    "production": "npm run clear-folders && npm run create-blank-folders && npm run create-bundle && npm run autoprefixer && npm run babel-js && npm run uglify-js && npm run uglify-css && npm run move-to-theme"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^14.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^7.1.2",
+    "uglify-js": "^3.10.4",
+    "uglifycss": "0.0.29"
+  }
+}
