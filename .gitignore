@@ -1,6 +1,6 @@
 node_modules
-src/
-preprocess/
-pre_bundle/
-postprocess/
-minified/
+src
+preprocess
+pre_bundle
+postprocess
+minified
