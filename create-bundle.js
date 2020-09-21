@@ -105,9 +105,8 @@ const ABSTRACT_BUNDLE = function (rules) {
       GO
 =================================================== */
 
-const ME = "NODE_AUTO_BOUNDLE";
 const BASE = String(__dirname);
-const THEME_ROOT = [...BASE.split("/")].filter((p) => p !== ME).join("/");
+const THEME_ROOT = [...BASE.split("/")].slice(0, -1).join("/");
 
 /* =================================================== 
       CLONE SOURCE FILES INTO "src" FOLDER

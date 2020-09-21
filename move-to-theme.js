@@ -18,9 +18,8 @@ const {
 /* =================================================== 
       MOVE INTO THEME
 =================================================== */
-const ME = "NODE_AUTO_BOUNDLE";
 const BASE = String(__dirname);
-const THEME_ROOT = [...BASE.split("/")].filter((p) => p !== ME).join("/");
+const THEME_ROOT = [...BASE.split("/")].slice(0, -1).join("/");
 
 const MOVE = {
   destination: THEME_ROOT + "/assets/dist",
